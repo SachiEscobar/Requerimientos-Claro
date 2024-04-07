@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" href="correoauto.css">
+</head>
+
+<body>
+  <div id="prueba">
+  <h2>Formulario de Contacto</h2>
+  <table class="margen">
+    <tr >
+      <td>Santiago Escobar</td>
+      <td>Luis Gabriel</td>
+      <td>Yesid Alberto Ávila</td>
+      <td>Johnny Yahir Romero</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </table>
+  <p></p>
+  <input type="number" id="operador" placeholder="Ingrese el operador solicitado">
+  <form id="formulario" action="" method="POST">
+    <br>
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="correo">Correo electrónico:</label><br>
+    <input type="email" id="correo" name="correo" required><br><br>
+
+    <label for="correo">Apellido:</label><br>
+    <input type="text" id="apellido" name="correo" required><br><br>
+
+    <input type="submit" value="Enviar">
+  </form>
+
+  <script>
+    // Obtener referencia al formulario y al campo de entrada de operador
+    var formulario = document.getElementById("formulario");
+    var operadorInput = document.getElementById("operador");
+
+    // Agregar un listener para el evento de cambio en el campo de entrada del operador
+    operadorInput.addEventListener("change", function () {
+      // Obtener el valor del operador
+      var operador = parseInt(operadorInput.value);
+
+      // Definir el correo electrónico predeterminado
+      var correoElectronico = "santiago.esc23@hotmail.com";
+
+      // Verificar el valor del operador y actualizar el correo electrónico en consecuencia
+      if (operador === 1) {
+        correoElectronico = "santiago.esc23@hotmail.com";
+      } else if (operador === 2) {
+        correoElectronico = "sachi.es@example.com";
+      }
+
+      // Actualizar el atributo 'action' del formulario con el correo electrónico correspondiente
+      formulario.action = "https://formsubmit.co/" + correoElectronico;
+    });
+  </script>
+  </div>
+</body>
+
+</html>

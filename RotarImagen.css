@@ -1,0 +1,17 @@
+.imagen-giratoria {
+    width: auto;
+    height: auto;
+}
+
+.girada {
+    animation: girar 1s forwards;/* Aplicar la animación girar cuando la clase girada está presente */
+}
+
+@keyframes girar {
+    from {
+        transform: rotatey(180deg); /* Rotación inicial */
+    }
+    to {
+        transform: rotatey(360deg); /* Rotación final */
+    }
+}

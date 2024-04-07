@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="claro.png" type="image/png">
+  <title>Formulario Parametrizado</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script> <!-- Excel-->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Particulas-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Incluye los estilos de Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Semantic-->
+</head>
+
+<body>
+  <div class="Hoja">
+    <img src="Claro 30.png" class="imagenLogo" !important>
+    <div class="menu">
+      <p></p>
+      <div>
+        <h3 class="Titulo">Requerimientos E&N</h3>
+      </div>
+      <br>
+      <p></p>
+    </div>
+    <div id="particles-js"></div>
+    <div id="particles-js1"></div>
+    <div id="contenedor" class="Contenedor">
+
+      <p>
+        <br>
+      <form id="miFormulario">
+        <p id="mensaje"></p>
+        <script src="saludo.js"></script>
+        <br>
+        <script src="Enlacecorreo.js"></script>
+        <script src="numeroalet.js"></script>
+          <div class="input-container">
+            <div class="ui left icon input">
+              <input type="int" name="BW" placeholder="BW solicitado (Mbps)" maxlength="2" id="BW" required
+                oninput="actualizarBarraDeProgreso()" oninput="limitarLongitud(input)">
+              <i class="wifi icon"></i>
+            </div>
+            <div class="placeholder-message">Tener presente que el BW máximo es de 50 Mbps</div>
+          </div>
+          <script src="Letrero.js"></script>
+          <div id="ERROR"></div>
+          <div>
+            <progress id="progressBar" value="0" max="50"></progress>
+          </div>
+          <p></p>
+          <div class="ui left icon input">
+            <input type="text" name="Latitud" id="latitud" placeholder="Latitud" step="0.001" required oninput="validarDecimal(this)"
+              oninput="actualizarBarraDeProgreso()" oninput="actualizarBarraDeProgreso()">
+            <i class="map marker icon"></i>
+          </div>
+          <br></br>
+          <div class="ui left icon input">
+            <input type="text" name="Longitud" id="longitud" placeholder="Longitud " step="" required oninput="validarDecimal(this) "
+              oninput="actualizarBarraDeProgreso()" oninput="actualizarBarraDeProgreso()">
+            <i class="map marker icon"></i>
+          </div>
+          <p></p>
+          <input type="submit" value="Buscar Sitio:">
+          <p></p>
+          <div id="mapid">
+            <img src="coordenadas.png" class="coordenadas" !important>
+          </div>
+          <br>
+          <script src="coordenadas.js"></script>
+          <div class="barra-progreso">
+            <div id="progreso" class="progreso"></div>
+          </div>
+          <h4>Barra de progreso Diligenciamiento</h4>
+          <button type="reset" id="botonLimpiar"><span>Limpiar Formulario</span></button>
+          <script>
+            document.getElementById('botonLimpiar').addEventListener('click', function () {
+              document.getElementById('miFormulario').reset();
+              progreso.style.width = 0;
+              document.getElementById('BW').value = ""; // Reinicia el campo de ancho de banda
+              actualizarBarraDeProgreso(); // Actualiza la barra de progreso de diligenciamiento
+            });
+          </script>
+          <br>
+          <br>
+          <br>
+          <script src="templates/Bw.js"></script>
+          <br>
+          <a class="regresar" href="Menuprincipal.html">Regresar</a>
+          <br> <br>
+          <button type="button" onclick="combinarYGuardar()">Combinar y Descargar Excel</button>
+      </form>
+    </div>
+    <div id="particles-js"></div>
+    <div id="particles-js1"></div>
+    <script src="particulas.js"></script>
+    <script src="particulas1.js"></script>
+    <script src="app.js"></script>
+    <script src="excel1.js"></script>
+    <script src="barraprogresiva.js"></script>
+    <script src="limite.js"></script>
+    <img src="scroll.png" class="imagen-giratoria1" onclick="girarImagen1()">
+    <img src="scroll.png" class="imagen-giratoria" onclick="girarImagen()">
+  </div>
+</body>
+
+</html>

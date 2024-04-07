@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades Satelitales</title>
+    <style type="text/css">
+        table.tableizer-table {
+            font-size: 12px;
+            border: 1px solid #CCC;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tableizer-table td {
+            padding: 4px;
+            margin: 3px;
+            border: 1px solid #CCC;
+        }
+
+        .tableizer-table th {
+            background-color: #104E8B;
+            color: #FFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Actividades Satelitales</h2>
+    <table class="tableizer-table">
+        <thead>
+            <tr class="tableizer-firstrow">
+                <th>Actividades Satelitales</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody id="actividadesBody">
+            <tr><td>Verificación de las coordenadas de la EB</td></tr>
+            <tr><td>Evaluación de la distribución en planta de las EB remotas para la ubicación de la antena satelital</td></tr>
+            <tr><td>Cálculo de línea de vista (Azimut y elevación)</td></tr>
+            <tr><td>Cálculo de Enlace</td></tr>
+            <tr><td>Cálculo de las capacidades espectrales requerida (MHz- Mbps)</td></tr>
+            <tr><td>Evaluación de capacidades y equipos instalados en CCM</td></tr>
+            <tr><td>Evaluación de capacidades y equipos instalados en EB Remotas</td></tr>
+            <tr><td>Identificación de actividades requeridas para la ampliación de los enlaces</td></tr>
+            <tr><td>Documentación en plataformas. creación, modificación y eliminación de Enlaces/servicios</td></tr>
+            <tr><td>Dimensionamiento de Recursos (Hardware, adecuaciones de obra civil, capacidad de los enlaces, etc)</td></tr>
+            <tr><td>Solicitud interfaces y direccionamiento IP</td></tr>
+            <tr><td>Solicitud avales: eléctricas, de infraestructura, de refrigeración</td></tr>
+            <tr><td>Solicitud Viabilidades: eléctricas, de infraestructura, de refrigeración</td></tr>
+            <tr><td>Solicitud Adecuaciones: eléctricas, de infraestructura, de refrigeración</td></tr>
+            <tr><td>Consolidación de información (Análisis de Informes, registro fotográfico)</td></tr>
+            <tr><td>Actualización de información en el servidor</td></tr>
+            <tr><td>Revisión de actividades ejecutadas / Informes</td></tr>
+            <tr><td>Generación Soportes: Actas - FUMOC - Formatos de Cumplimiento</td></tr>
+            <tr><td>Aprovisionamiento de enlace satelital, rutas terrestres (Fibra ó micro ondas)</td></tr>
+            <tr><td>Revisión periódica de existencias físicas y verificación de las existencias en el portal SAP</td></tr>
+            <tr><td>Control de entradas de equipos e implementos a bodega</td></tr>
+            <tr><td>Generacion Reportes</td></tr>
+            <tr><td>Generación Planes de Frecuencia</td></tr>
+            <tr><td>Aprovisionamiento de enlace satelital, rutas terrestres (Fibra ó micro ondas)</td></tr>
+            <tr><td>Seguimiento a Proveedores de capacidad</td></tr>
+            <tr><td>Acompañamiento durante las actividades de integración enlaces</td></tr>
+            <tr><td>Soporte a O&M durante la persistencia de una fallo o problemas de desempeño de una EB asociadas al enlace satelital</td></tr>
+            <tr><td>Otros</td></tr>
+        </tbody>
+    </table>
+    <br>
+    <button id="btnSeleccion" onclick="obtenerSeleccion()">Obtener Selección</button>
+
+    <script>
+        function obtenerSeleccion() {
+            var actividades = [];
+            var tabla = document.getElementById("actividadesBody");
+            var filas = tabla.getElementsByTagName("tr");
+            for (var i = 0; i < filas.length; i++) {
+                var checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "actividad";
+                checkbox.value = filas[i].getElementsByTagName("td")[0].textContent;
+
+                var celda = document.createElement("td");
+                celda.appendChild(checkbox);
+                filas[i].appendChild(celda);
+
+                if (checkbox.value !== "") {
+                    actividades.push(checkbox.value);
+                }
+            }
+            console.log(actividades);
+            // Aquí puedes hacer lo que quieras con el array "actividades"
+            // Por ejemplo, enviarlo a un servidor o mostrarlo en la página
+
+            // Deshabilitar el botón después de hacer clic
+            document.getElementById("btnSeleccion").disabled = true;
+        }
+    </script>
+</body>
+</html>

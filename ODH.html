@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="claro.png" type="image/png">
+    <title>Requerimientos ODH</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Particulas-->
+</head>
+<br><br>
+
+<body>
+    <br><br><br><br>
+    <div id="particles-js"></div>
+    <div id="contenedor1" class="Contenedor">
+        <img src="Clao.png" class="imagenLogo1" !important>
+        <form id="miFormulario">
+            <h3 class="Titulo3">PROYECTOS ODH</h3>
+            <br>
+            <div class="ui left icon input">
+                <input type="text" placeholder="Número de Resolución" id="nombre" required>
+                <i class="question icon"></i>
+            </div>
+            <br><br>
+            <label for="Estado">Tipo de Solicitud: </label>
+            <select id="Estado" required onchange="actualizarDepartamentos()">
+                <option>Diseño Nuevo</option>
+                <option>Rediseño</option>
+            </select>
+            <br>
+            <p></p>
+                <label for="Region">Año proyecto:</label>
+                <select class="ui dropdown custom-select">
+                    <option value="1">Año 1</option>
+                    <option value="2">Año 2</option>
+                    <option value="3">Año 3</option>
+                    <option value="4">Año 4</option>
+                    <option value="5">Año 5</option>
+                </select>
+                <script src="templates/Bw.js"></script>
+            <div class="barra-progreso">
+                <div id="progreso" class="progreso"></div>
+            </div>
+            <h4>Barra de progreso Diligenciamiento</h4>
+            <a class="regresar" href="Menuprincipal.html">Regresar</a>
+            <p></p>
+            <button type="button" id="boton" onclick="guardarEnExcel()">Guardar en Excel</button>
+        </form>
+        <div id="particles-js"></div>
+        <div id="particles-js1"></div>
+        <script src="particulas.js"></script>
+        <script src="particulas1.js"></script>
+    </div>
+    <script src="excel.js"></script>
+    <script src="barraprogresiva.js"></script>
+    <script src="limite.js"></script>
+    <img src="scroll.png" class="imagen-giratoria1" onclick="girarImagen1()">
+    <img src="scroll.png" class="imagen-giratoria" onclick="girarImagen()">
+</body>
+
+</html>

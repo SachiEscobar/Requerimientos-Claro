@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="claro.png" type="image/png">
+    <title>Requerimientos ODH</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Particulas-->
+</head>
+<br><br>
+
+<body>
+    <br><br><br><br>
+    <div id="particles-js"></div>
+    <div id="contenedor1" class="Contenedor">
+        <img src="Clao.png" class="imagenLogo1" !important>
+        <form id="miFormulario">
+            <h3 class="Titulo3">PROYECTOS SATELITALES</h3>
+            <br>
+            <select class="ui dropdown custom-select">
+                <option>PEN(PLan de expansión Nacional)</option>
+                <option>ODH(Satelitáles)</option>
+                <option>PES(Plan de Espectro)</option>
+                <option>Ampliaciones</option>
+                <option>Desmontes</option>
+                <option>Actualización tecnológica</option>
+            </select>
+            <br></br>
+            <br></br>
+            <table class="tableizer-table">
+                <thead>
+                    <tr class="tableizer-firstrow">
+                        <th>Actividades Satelitales</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody id="actividadesBody">
+                    <tr>
+                        <td>Verificación de las coordenadas de la EB</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación de la distribución en planta de las EB remotas para la ubicación de la antena
+                            satelital</td>
+                    </tr>
+                    <tr>
+                        <td>Cálculo de línea de vista (Azimut y elevación)</td>
+                    </tr>
+                    <tr>
+                        <td>Cálculo de Enlace</td>
+                    </tr>
+                    <tr>
+                        <td>Cálculo de las capacidades espectrales requerida (MHz- Mbps)</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación de capacidades y equipos instalados en CCM</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación de capacidades y equipos instalados en EB Remotas</td>
+                    </tr>
+                    <tr>
+                        <td>Identificación de actividades requeridas para la ampliación de los enlaces</td>
+                    </tr>
+                    <tr>
+                        <td>Documentación en plataformas. creación, modificación y eliminación de Enlaces/servicios</td>
+                    </tr>
+                    <tr>
+                        <td>Dimensionamiento de Recursos (Hardware, adecuaciones de obra civil, capacidad de los
+                            enlaces, etc)</td>
+                    </tr>
+                    <tr>
+                        <td>Solicitud interfaces y direccionamiento IP</td>
+                    </tr>
+                    <tr>
+                        <td>Solicitud avales: eléctricas, de infraestructura, de refrigeración</td>
+                    </tr>
+                    <tr>
+                        <td>Solicitud Viabilidades: eléctricas, de infraestructura, de refrigeración</td>
+                    </tr>
+                    <tr>
+                        <td>Solicitud Adecuaciones: eléctricas, de infraestructura, de refrigeración</td>
+                    </tr>
+                    <tr>
+                        <td>Consolidación de información (Análisis de Informes, registro fotográfico)</td>
+                    </tr>
+                    <tr>
+                        <td>Actualización de información en el servidor</td>
+                    </tr>
+                    <tr>
+                        <td>Revisión de actividades ejecutadas / Informes</td>
+                    </tr>
+                    <tr>
+                        <td>Generación Soportes: Actas - FUMOC - Formatos de Cumplimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Aprovisionamiento de enlace satelital, rutas terrestres (Fibra ó micro ondas)</td>
+                    </tr>
+                    <tr>
+                        <td>Revisión periódica de existencias físicas y verificación de las existencias en el portal SAP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Control de entradas de equipos e implementos a bodega</td>
+                    </tr>
+                    <tr>
+                        <td>Generacion Reportes</td>
+                    </tr>
+                    <tr>
+                        <td>Generación Planes de Frecuencia</td>
+                    </tr>
+                    <tr>
+                        <td>Aprovisionamiento de enlace satelital, rutas terrestres (Fibra ó micro ondas)</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimiento a Proveedores de capacidad</td>
+                    </tr>
+                    <tr>
+                        <td>Acompañamiento durante las actividades de integración enlaces</td>
+                    </tr>
+                    <tr>
+                        <td>Soporte a O&M durante la persistencia de una fallo o problemas de desempeño de una EB
+                            asociadas al enlace satelital</td>
+                    </tr>
+                    <tr>
+                        <td>Otros</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <script src="checkbox.js"></script>
+            <button id="btnSeleccion" onclick="obtenerSeleccion()">Obtener Selección</button>
+            <br><br>
+            <label for="mensaje" class="mensaje ">Descripción Actividad a Realizar:</label><br>
+            <textarea id="Aviso" name="mensaje" rows="4" cols="50"></textarea>
+            <br>
+            <div class="adjuntos">
+                <br>
+                <h2>Adjuntar Documentos</h2>
+                <form id="adjuntosForm" enctype="multipart/form-data">
+                    <label for="documento">Seleccionar Documento:</label>
+                    <input type="file" class="file" id="documento" name="documento"
+                        accept=".pdf, .doc, .docx ,.xlsx , .xls , .txt , .zip , .7z ,.rar , .msg"><br><br>
+                    <!-- El atributo "accept" especifica los tipos de archivos que se pueden seleccionar -->
+                    <br>
+
+                    <input type="submit" value="Adjuntar">
+                </form>
+            </div>
+            <script src="templates/Bw.js"></script>
+            <div class="barra-progreso">
+                <div id="progreso" class="progreso"></div>
+            </div>
+            <h4>Barra de progreso Diligenciamiento</h4>
+            <a class="regresar" href="Menuprincipal.html">Regresar</a>
+            <p></p>
+            <button type="button" id="boton" onclick="guardarEnExcel()">Guardar en Excel</button>
+        </form>
+        <div id="particles-js"></div>
+        <div id="particles-js1"></div>
+        <script src="particulas.js"></script>
+        <script src="particulas1.js"></script>
+    </div>
+    <script src="excel.js"></script>
+    <script src="barraprogresiva.js"></script>
+    <script src="limite.js"></script>
+    <img src="scroll.png" class="imagen-giratoria1" onclick="girarImagen1()">
+    <img src="scroll.png" class="imagen-giratoria" onclick="girarImagen()">
+</body>
+
+</html>
